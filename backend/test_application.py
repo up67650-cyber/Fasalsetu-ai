@@ -108,6 +108,24 @@ class ApplicationTests(unittest.TestCase):
         self.assertIn("weather_latitude", columns)
         self.assertIn("metadata_json", history_columns)
 
+    def test_cors_allows_deployed_frontend_and_local_development(self):
+        for origin in (
+            "https://fasalsetu-ai-frontend.onrender.com",
+            "http://localhost:5173",
+        ):
+            response = self.client.options(
+                "/api/farm",
+                headers={
+                    "Origin": origin,
+                    "Access-Control-Request-Method": "GET",
+                },
+            )
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(
+                response.headers.get("access-control-allow-origin"),
+                origin,
+            )
+
     def test_weather_location_is_saved_and_restored_after_restart(self):
         location = {"name": "Nagpur, Maharashtra, India", "latitude": 21.1458, "longitude": 79.0882}
         saved = self.client.put("/api/weather/location", json=location)

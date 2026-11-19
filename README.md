@@ -26,7 +26,7 @@ Prerequisites: Node.js 18+ and Python 3.10+.
 3. Start the web app in another terminal: `npm run dev`
 4. Open the Vite URL (normally `http://localhost:5173`).
 
-The API defaults to `http://localhost:8000`. Set `VITE_API_URL` in a root `.env` file to change it. Set `DATABASE_PATH` in the backend process environment to choose a different SQLite file. The default database is `backend/fasalsetu.db`. Startup applies additive schema migrations and preserves existing farm-profile and history rows.
+The frontend API base defaults to the deployed backend, `https://fasalsetu-ai.onrender.com`. For local development, copy `.env.example` to `.env`; its `VITE_API_BASE_URL=http://localhost:8000` setting connects to the local API. Set `VITE_API_BASE_URL` in the Render frontend service's build environment to override the default. The backend allows the deployed frontend origin and the local Vite origins by default; additional origins can be comma-separated in `CORS_ORIGINS`. Set `DATABASE_PATH` in the backend process environment to choose a different SQLite file. The default database is `backend/fasalsetu.db`. Startup applies additive schema migrations and preserves existing farm-profile and history rows.
 
 ### Optional generative assistant
 
