@@ -23,7 +23,7 @@ FasalSetu AI is an AI-powered smart agriculture platform that helps farmers make
 
 🌐 Live Demo
 
-https://fasalsetu-ai-frontend.onrender.com
+https://fasalsetu-ai-frontend.onrender.com/
 
 🎯 Vision
 
